@@ -13,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class irishjobstest {
 
+    //--------------- Verify recommended jobs -------------------
     @Step("Open IrishJobs Homepage")
     public void implementation1() {
         String app_url = System.getenv("APP_URL");
@@ -40,25 +41,31 @@ public class irishjobstest {
         Thread.sleep(2000);
     }
 
-    @Step("Close Get Started Modal")
-    public void closeGetStarted() throws InterruptedException {
-        WebElement getStarted = Driver.webDriver.findElement(By.xpath("//*[@id='ProfileModalWindowBaseContent']/div[1]/button"));
-        getStarted.click();
-    }
-
     @Step("Go to Home")
     public void goToHome() {
         Driver.webDriver.navigate().to("https://www.irishjobs.ie");
-        
     }
 
-    @Step("Search For A Job")
-    public void searchJob() throws InterruptedException {
-        WebElement search = Driver.webDriver.findElement(By.id("Keywords"));
-        search.click();
-        search.sendKeys("QA");
-        search.sendKeys(Keys.ENTER);
-        Thread.sleep(5000);
+    @Step("Verify Jobs Number is greater than zero")
+    public void checkJobsNumber() throws InterruptedException {
+       assertThat(Driver.webDriver.findElements(By.xpath("//*[@id='page']/div[2]/div/div[1]/div/div/div/div[1]/div[1]"))).isNotNull();
+    
     }
+
+    //--------------- Verify recommended jobs -------------------
+    // @Step("Search For A Job")
+    // public void searchJob() throws InterruptedException {
+    //     WebElement search = Driver.webDriver.findElement(By.id("Keywords"));
+    //     search.click();
+    //     search.sendKeys("QA");
+    //     search.sendKeys(Keys.ENTER);
+    //     Thread.sleep(5000);
+    // }
+
+        // @Step("Close Get Started Modal")
+    // public void closeGetStarted() throws InterruptedException {
+    //     WebElement getStarted = Driver.webDriver.findElement(By.xpath("//*[@id='ProfileModalWindowBaseContent']/div[1]/button"));
+    //     getStarted.click();
+    // }
 
 }

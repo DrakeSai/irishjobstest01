@@ -1,13 +1,14 @@
 RECOMMENDED JOBS FOR YOU
 ==========================
 
-* Open IrishJobs Homepage
+It is required to be logged in to irishjobs.com otherwise the module 
+"Recommended jobs for you" will never be displayed
 
-Log in to irishjobs.com
+Verify that recommended jobs are displayed successfully
 -----------
-
+* Open IrishJobs Homepage
 * Go to Log In Page
 * Log In to page with email "frantest01@gmail.com" and pass "Pa$$w0rd"
-* Close Get Started Modal
 * Go to Home
-* Search For A Job
+* Verify Jobs Number is greater than zero
+
