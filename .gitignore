@@ -1,0 +1,10 @@
+.gauge/
+.vscode/
+logs/
+reports/
+target/
+
+GitUsefullComands
+.classpath
+.project
+.settings/
