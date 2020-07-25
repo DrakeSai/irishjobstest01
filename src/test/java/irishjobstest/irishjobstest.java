@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.interactions.Actions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -48,24 +49,38 @@ public class irishjobstest {
 
     @Step("Verify Jobs Number is greater than zero")
     public void checkJobsNumber() throws InterruptedException {
-       assertThat(Driver.webDriver.findElements(By.xpath("//*[@id='page']/div[2]/div/div[1]/div/div/div/div[1]/div[1]"))).isNotNull();
-    
+        assertThat(Driver.webDriver.findElements(By.xpath("//*[@id='page']/div[2]/div/div[1]/div/div/div/div[1]/div[1]"))).isNotNull();
     }
 
-    //--------------- Verify recommended jobs -------------------
-    // @Step("Search For A Job")
-    // public void searchJob() throws InterruptedException {
-    //     WebElement search = Driver.webDriver.findElement(By.id("Keywords"));
-    //     search.click();
-    //     search.sendKeys("QA");
-    //     search.sendKeys(Keys.ENTER);
-    //     Thread.sleep(5000);
-    // }
+    //--------------- Verify Search Jobs -------------------
 
-        // @Step("Close Get Started Modal")
-    // public void closeGetStarted() throws InterruptedException {
-    //     WebElement getStarted = Driver.webDriver.findElement(By.xpath("//*[@id='ProfileModalWindowBaseContent']/div[1]/button"));
-    //     getStarted.click();
-    // }
+
+    @Step("Search for <description> Jobs")
+    public void searchJob(String description) throws InterruptedException {
+        WebElement search = Driver.webDriver.findElement(By.id("Keywords"));
+        search.sendKeys(description);
+        search.sendKeys(Keys.ENTER);  
+    }
+
+    @Step("Validate Total Jobs Found")
+    public void totalJobs() throws InterruptedException {
+        boolean totalPresent = Driver.webDriver.findElements(By.className("jobsFound")).size() > 0;
+        assertThat(totalPresent).isTrue();
+    }
+
+    @Step("Search for Negative <description> Jobs")
+    public void searchNegativeJob(String description) throws InterruptedException {
+        WebElement search = Driver.webDriver.findElement(By.id("Keywords"));
+        search.sendKeys(description);
+        search.sendKeys(Keys.ENTER);     
+    }
+    @Step("Validate Total Negative Jobs Found")
+    public void totalNegativeJobs() throws InterruptedException {
+        boolean totalPresent = Driver.webDriver.findElements(By.className("jobsFound")).size() > 0;
+        assertThat(totalPresent).isFalse();
+    }
+
+
+
 
 }
