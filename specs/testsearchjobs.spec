@@ -1,7 +1,7 @@
 SEARCH JOBS
 ==========================
 
-* Go to Home
+* Go Back to Home
 
 Verify Search And Return Results
 -----------

@@ -1,14 +1,12 @@
 package irishjobstest;
 
-//import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.Step;
 import driver.Driver;
-//import javassist.compiler.ast.Keyword;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-//import org.openqa.selenium.interactions.Actions;
+
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -42,14 +40,15 @@ public class irishjobstest {
         Thread.sleep(2000);
     }
 
-    @Step("Go to Home")
+    @Step("Go Back to Home")
     public void goToHome() {
         Driver.webDriver.navigate().to("https://www.irishjobs.ie");
     }
 
-    @Step("Verify Jobs Number is greater than zero")
+    @Step("Verify Recomended Jobs is Displayed")
     public void checkJobsNumber() throws InterruptedException {
-        assertThat(Driver.webDriver.findElements(By.xpath("//*[@id='page']/div[2]/div/div[1]/div/div/div/div[1]/div[1]"))).isNotNull();
+        boolean totalRecomended = Driver.webDriver.findElements(By.xpath("//*[@id='page']/div[2]/div/div[1]/div/div/div/div[1]/div[1]")).size() > 0;
+        assertThat(totalRecomended).isTrue();
     }
 
     //--------------- Verify Search Jobs -------------------
