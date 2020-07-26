@@ -45,7 +45,7 @@ public class irishjobstest {
         Driver.webDriver.navigate().to("https://www.irishjobs.ie");
     }
 
-    @Step("Verify Recomended Jobs is Displayed")
+    @Step("Verify Recomended Jobs are Displayed")
     public void checkJobsNumber() throws InterruptedException {
         boolean totalRecomended = Driver.webDriver.findElements(By.xpath("//*[@id='page']/div[2]/div/div[1]/div/div/div/div[1]/div[1]")).size() > 0;
         assertThat(totalRecomended).isTrue();

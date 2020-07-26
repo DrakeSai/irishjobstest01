@@ -1,8 +1,16 @@
-Requirerments: 
-- JDK 11
-- Maven 3.6.3
-- Gauge 1.1.1
 
-Clone the repository in your computer 
-Open your terminal and go to project folder
-execute: mvn test
+# Gauge Java Maven Irish Jobs Test
+
+## Prerequisites
+
+This example requires the following softwares to run.
+  * [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) or above
+  * [Maven installation instructions](http://maven.apache.org/install.html)
+  * [Gauge](https://docs.gauge.org/getting_started/installing-gauge.html)
+  * Gauge Java plugin 
+  * HTML-Report plugin 
+  * Chrome
+
+## Running instructions
+- Once you have installed Maven
+- Run the test with command: mvn test

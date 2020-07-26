@@ -10,5 +10,5 @@ Verify that recommended jobs are displayed successfully
 * Go to Log In Page
 * Log In to page with email "frantest01@gmail.com" and pass "Pa$$w0rd"
 * Go Back to Home
-* Verify Recomended Jobs is Displayed
+* Verify Recomended Jobs are Displayed
 
